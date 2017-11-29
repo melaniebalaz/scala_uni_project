@@ -1,3 +1,4 @@
+import Printer.PrintCurrency
 import akka.actor.{Actor, ActorLogging, ActorRef, Props}
 
 object EuroConverter {
@@ -10,8 +11,8 @@ class EuroConverter(printerActor: ActorRef) extends Actor with ActorLogging {
 
   def receive = {
     case _ => println("TODO")
-    case EuroConverter.euro2bitcoin(euro : BigDecimal)  => printerActor ! (euro/5551)
-    case EuroConverter.euro2dollar(euro : BigDecimal)  => printerActor ! (euro*1.18)
+    case EuroConverter.euro2bitcoin(euro : BigDecimal)  => printerActor ! PrintCurrency(euro/5551)
+    case EuroConverter.euro2dollar(euro : BigDecimal)  => printerActor ! PrintCurrency(euro*1.18)
   }
 
 }

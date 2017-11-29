@@ -1,3 +1,4 @@
+import Printer._
 import akka.actor.{Actor, ActorLogging, ActorRef, Props}
 
 object DollarConverter {
@@ -10,8 +11,8 @@ class DollarConverter(printerActor: ActorRef) extends Actor with ActorLogging {
 
   def receive = {
     case _ => println("TODO")
-    case DollarConverter.dollar2bitcoin(dollar : BigDecimal)  => printerActor ! (dollar/5551)
-    case DollarConverter.dollar2euro(dollar : BigDecimal)  => printerActor ! (dollar*0.85)
+    case DollarConverter.dollar2bitcoin(dollar : BigDecimal)  => printerActor ! PrintCurrency(dollar/5551)
+    case DollarConverter.dollar2euro(dollar : BigDecimal)  => printerActor ! PrintCurrency(dollar*0.85)
   }
 
 }
