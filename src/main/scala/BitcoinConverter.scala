@@ -10,8 +10,8 @@ object BitcoinConverter {
 class BitcoinConverter(printerActor: ActorRef) extends Actor with ActorLogging {
 
   def receive = {
-    case BitcoinConverter.bitcoin2euro(bitcoin : BigDecimal)  => printerActor ! PrintCurrency(bitcoin*5551)
-    case BitcoinConverter.bitcoin2dollar(bitcoin : BigDecimal)  => printerActor ! PrintCurrency(bitcoin*6500)
+    case BitcoinConverter.bitcoin2euro(bitcoin : BigDecimal)  => printerActor ! PrintCurrency(bitcoin*BigDecimal("5551"))
+    case BitcoinConverter.bitcoin2dollar(bitcoin : BigDecimal)  => printerActor ! PrintCurrency(bitcoin*BigDecimal("6500"))
   }
 
 }
