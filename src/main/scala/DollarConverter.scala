@@ -11,7 +11,7 @@ class DollarConverter(printerActor: ActorRef) extends Actor with ActorLogging {
 
   def receive = {
     //case _ => println("TODO")
-    case DollarConverter.dollar2bitcoin(dollar : BigDecimal)  => printerActor ! PrintCurrency(dollar/BigDecimal("5551"))
+    case DollarConverter.dollar2bitcoin(dollar : BigDecimal)  => printerActor ! PrintCurrency(dollar/BigDecimal("6500"))
     case DollarConverter.dollar2euro(dollar : BigDecimal)  => printerActor ! PrintCurrency(dollar*BigDecimal("0.85"))
   }
 
