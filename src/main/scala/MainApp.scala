@@ -1,3 +1,6 @@
+import BitcoinConverter._
+import EuroConverter._
+import DollarConverter._
 import akka.actor.{ActorRef, ActorSystem}
 
 object MainApp extends App {
@@ -13,6 +16,13 @@ object MainApp extends App {
     val bitcoin = BigDecimal("1")
     val dollar = BigDecimal("200")
     val euro = BigDecimal("300")
+
+    bc ! bitcoin2dollar(bitcoin)
+    bc ! bitcoin2euro(bitcoin)
+    dc ! dollar2euro(dollar)
+    dc ! dollar2bitcoin(dollar)
+    ec ! euro2dollar(euro)
+    ec ! euro2bitcoin(euro)
 
   } finally {
     system.terminate()
